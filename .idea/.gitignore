@@ -6,3 +6,17 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+# --------------------
+# Backend (Spring Boot)
+# --------------------
+/ejercicios-api/target/  # O /backend/target/ si lo renombraste
+/ejercicios-api/bin/
+*.iml
+.idea/
+
+# --------------------
+# Frontend (Node/Vite)
+# --------------------
+/frontend/node_modules/
+/frontend/dist/
+.env

@@ -1,6 +1,7 @@
 package com.exercises.ejercicios_api.controller;
 
 import com.exercises.ejercicios_api.dtos.AuthRequest;
+import com.exercises.ejercicios_api.dtos.AuthRequestRegister;
 import com.exercises.ejercicios_api.dtos.AuthResponse;
 import com.exercises.ejercicios_api.model.UserModel;
 import com.exercises.ejercicios_api.service.UserService;
@@ -22,8 +23,8 @@ public class AuthController {
         return ResponseEntity.ok(response);
     }
     @PostMapping("/register")
-    public void createUser(@RequestBody UserModel user){
-        this.userService.newUser(user);
+    public void createUser(@RequestBody AuthRequestRegister register){
+        this.userService.newUser(register);
     }
 }
 

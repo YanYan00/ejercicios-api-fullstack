@@ -5,15 +5,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import Navbar from './components/Navbar/Navbar';
+import DashboardPage from './pages/DashboardPage/DashboardPage';
 // Suponiendo que tienes una página de bienvenida o dashboard
 // import DashboardPage from './pages/DashboardPage'; 
 
 const App: React.FC = () => {
     return (
         <>
-            <Navbar></Navbar>
             <BrowserRouter>
                 {/* ... */}
+                <Navbar></Navbar>
                 <Routes>
                     
                     {/* Ruta pública para el Login */}
@@ -22,7 +23,7 @@ const App: React.FC = () => {
                     {/* Agrega la ruta raíz */}
                     <Route path='/register' element={<RegisterPage></RegisterPage>}></Route>
                     {/* <Route path="/" element={<DashboardPage />} /> */}
-
+                    <Route path='/dashboard' element={<DashboardPage></DashboardPage>}></Route>
                 </Routes>
             </BrowserRouter>
         </>

@@ -23,5 +23,8 @@ export const AuthService ={
     register: async (data:RegisterCredentials) =>{
         const response = await apiClient.post('/auth/register',data)
         return response.data;
+    },
+    logout: ()=>{
+        localStorage.removeItem('jwtToken');
     }
 }

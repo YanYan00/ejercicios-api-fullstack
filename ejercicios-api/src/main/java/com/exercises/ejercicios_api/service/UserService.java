@@ -3,6 +3,7 @@ package com.exercises.ejercicios_api.service;
 import com.exercises.ejercicios_api.dtos.AuthRequest;
 import com.exercises.ejercicios_api.dtos.AuthRequestRegister;
 import com.exercises.ejercicios_api.dtos.AuthResponse;
+import com.exercises.ejercicios_api.model.PatientModel;
 import com.exercises.ejercicios_api.model.TypeUserModel;
 import com.exercises.ejercicios_api.model.UserModel;
 import com.exercises.ejercicios_api.repository.TypeUserRepository;
@@ -50,9 +51,16 @@ public class UserService {
         TypeUserModel typeUser = typeUserRepository.findById(1L)
                         .orElseThrow(()-> new IllegalStateException("No existe el tipo de usuario"));
         user.setType_user(typeUser);
-        userRepository.save(user);
+        UserModel savedUser= userRepository.save(user);
+        Long newUserId = savedUser.getId();
+        createInitialPatientProfile (newUserId);
+        return savedUser;
     }
-
+    public void createInitialPatientProfile(Long userId) {
+        PatientModel patientModel = new PatientModel();
+        patientModel.setId(userId);
+        patien
+    }
     public AuthResponse login(AuthRequest authRequest) {
         Optional<UserModel> res = userRepository.findByEmail(authRequest.getEmail());
         if(res.isPresent()){

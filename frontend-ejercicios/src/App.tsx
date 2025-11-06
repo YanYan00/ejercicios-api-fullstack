@@ -26,7 +26,6 @@ const App: React.FC = () => {
                 </Routes>
             </BrowserRouter>
         </>
-        // Usamos el nombre BrowserRouter directamente (o puedes usar 'as Router')
         
     );
 };
